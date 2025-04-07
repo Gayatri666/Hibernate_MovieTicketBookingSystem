@@ -1,0 +1,9 @@
+util\HibernateUtil.class
+model\Screen.class
+controller\BookingController.class
+controller\TheaterController.class
+model\Booking.class
+model\Theater.class
+AllTests.class
+model\Movie.class
+model\Seat.class

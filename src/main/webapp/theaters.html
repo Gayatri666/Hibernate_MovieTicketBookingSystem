@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Theaters</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0f0f0f url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #f5c518;
+            text-align: center;
+            font-size: 2.2em;
+        }
+        .theater {
+            background: rgba(30,30,30,0.9);
+            margin: 15px 0;
+            padding: 15px;
+            border-left: 4px solid #f5c518;
+        }
+        form {
+            margin-top: 30px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+        }
+        button {
+            background: #f5c518;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Theaters</h1>
+        <div id="theaters-list">
+            <div class="theater">
+                <h3>Cine tokis</h3>
+                <p>New York • 12 screens</p>
+            </div>
+            <div class="theater">
+                <h3>Theater Hub</h3>
+                <p>Angele • 8 screens</p>
+            </div>
+            
+            
+            <div class="theater">
+                <h3>Gajanan Tokies</h3>
+                <p>Angele • 8 screens</p>
+            </div>
+        </div>
+
+        <form id="theater-form">
+            <input type="text" placeholder="Theater Name" required>
+            <input type="text" placeholder="Location" required>
+            <button type="submit">Add Theater</button>
+        </form>
+    </div>
+</body>
+</html>

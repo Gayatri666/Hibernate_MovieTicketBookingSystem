@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Tickets</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0f0f0f url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #f5c518;
+            text-align: center;
+            font-size: 2.2em;
+        }
+        .movie {
+            background: rgba(30,30,30,0.9);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .selected {
+            background: rgba(245,197,24,0.2);
+            border: 1px solid #f5c518;
+        }
+        button {
+            background: #f5c518;
+            padding: 10px 20px;
+            border: none;
+            margin: 5px;
+            font-weight: bold;
+        }
+        #confirmation {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Movie Tickets</h1>
+        
+        <div id="step1">
+            <h2>1. Choose Movie</h2>
+            <div class="movie" onclick="selectMovie(this, 'Avengers: Endgame')">
+                <h3>Bramhastra: Devotional</h3>
+                <p>181 min • Action</p>
+            </div>
+            <div class="movie" onclick="selectMovie(this, 'The Shawshank Redemption')">
+                <h3>AAdipurush</h3>
+                <p>142 min • Devotional</p>
+            </div>
+            <div class="movie" onclick="selectMovie(this, 'Avengers: Endgame')">
+                <h3>Sushmadarshini: Devotional</h3>
+                <p>181 min • Action</p>
+            </div>
+        </div>
+        
+        <div id="step2" style="display:none">
+            <h2>2. Choose Theater</h2>
+            <div class="movie" onclick="selectTheater(this, 'Cineplex Downtown')">
+                <h3>Cine Tokis</h3>
+                <p>New York • 12 screens</p>
+            </div>
+            <div class="movie" onclick="selectTheater(this, 'Cineplex Downtown')">
+                <h3>Gajanan Tokis</h3>
+                <p>New York • 12 screens</p>
+            </div>
+            <div class="movie" onclick="selectTheater(this, 'Hollywood Theater')">
+                <h3>Theater Goodwill</h3>
+                <p>new one • 8 screens</p>
+            </div>
+            <button onclick="backToStep(1)">Back</button>
+        </div>
+        
+        <div id="step3" style="display:none">
+            <h2>3. Confirm Booking</h2>
+            <div id="booking-info"></div>
+            <button onclick="backToStep(2)">Back</button>
+            <button onclick="confirmBooking()">Confirm</button>
+        </div>
+        
+        <div id="confirmation">
+            <h2>Booking Confirmed!</h2>
+            <div id="ticket-info"></div>
+            <button onclick="location.reload()">Book Another</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedMovie, selectedTheater;
+        
+        function selectMovie(element, movie) {
+            document.querySelectorAll('.movie').forEach(m => m.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedMovie = movie;
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+        
+        function selectTheater(element, theater) {
+            document.querySelectorAll('.movie').forEach(m => m.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedTheater = theater;
+            document.getElementById('booking-info').innerHTML = `
+                <p><strong>Movie:</strong> ${selectedMovie}</p>
+                <p><strong>Theater:</strong> ${selectedTheater}</p>
+                <p><strong>Time:</strong> Today at 7:00 PM</p>
+            `;
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+        }
+        
+        function backToStep(step) {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'none';
+            document.getElementById(`step${step}`).style.display = 'block';
+        }
+        
+        function confirmBooking() {
+            document.getElementById('step3').style.display = 'none';
+            document.getElementById('ticket-info').innerHTML = `
+                <p>${selectedMovie}</p>
+                <p>${selectedTheater}</p>
+                <p>Today at 7:00 PM</p>
+                <p>Ticket #${Math.floor(Math.random()*10000)}</p>
+            `;
+            document.getElementById('confirmation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

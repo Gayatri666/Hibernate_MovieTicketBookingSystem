@@ -1,0 +1,110 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: #0f0f0f url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover fixed;
+    color: white;
+}
+
+header {
+    background: rgba(0,0,0,0.8);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    color: #f5c518;
+    font-size: 2em;
+    margin: 0;
+}
+
+h1 span {
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+
+nav a.active {
+    border-bottom: 2px solid #f5c518;
+}
+
+.book-btn {
+    background: #f5c518;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta {
+    background: #f5c518;
+    color: black;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.movie-grid {
+    display: inline-flex; 
+    gap: 20px;
+    padding: 0 20px; 
+}
+
+.movie-card {
+    background: rgba(30,30,30,0.8);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 250px; 
+    display: inline-block; 
+    vertical-align: top;
+    white-space: normal; 
+    transition: transform 0.3s ease;
+}
+
+
+.movie-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+}
